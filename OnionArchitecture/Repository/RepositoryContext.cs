@@ -6,5 +6,6 @@ namespace Repository
 {
     public class RepositoryContext(DbContextOptions options) : IdentityDbContext<User>(options)
     {
+        public DbSet<Product> Products { get; set; }
     }
 }
