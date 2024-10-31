@@ -16,25 +16,23 @@ using System.Text;
 
 namespace Service
 {
-    internal sealed class AuthenticationService : IAuthenticationService
+    internal sealed class AuthenticationService(
+        ILoggerManager logger,
+        IMapper mapper,
+        UserManager<User> userManager,
+        IOptions<JwtConfiguration> options,
+        IConfiguration configuration,
+        SignInManager<User> signInManager) : IAuthenticationService
     {
-        private readonly ILoggerManager _logger;
-        private readonly IMapper _mapper;
-        private readonly UserManager<User> _userManager;
-        private readonly IOptions<JwtConfiguration> _configuration;
-        private readonly JwtConfiguration _jwtConfiguration;
+        private readonly ILoggerManager _logger = logger;
+        private readonly IMapper _mapper = mapper;
+        private readonly UserManager<User> _userManager = userManager;
+        private readonly IOptions<JwtConfiguration> _options = options;
+        private readonly JwtConfiguration _jwtConfiguration = options.Value;
+        private readonly IConfiguration _configuration= configuration;
+        private readonly SignInManager<User> _signInManager = signInManager;
 
         private User? _user;
-
-        public AuthenticationService(ILoggerManager logger, IMapper mapper,
-            UserManager<User> userManager, IOptions<JwtConfiguration> configuration)
-        {
-            _logger = logger;
-            _mapper = mapper;
-            _userManager = userManager;
-            _configuration = configuration;
-            _jwtConfiguration = configuration.Value;
-        }
 
         public async Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration)
         {
@@ -171,6 +169,11 @@ namespace Service
             );
 
             return tokenOptions;
+        }
+
+        public async Task Logout()
+        {
+            
         }
     }
 }

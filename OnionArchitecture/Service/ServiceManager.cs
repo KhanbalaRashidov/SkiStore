@@ -18,7 +18,7 @@ namespace Service
         SignInManager<User> signInManager) : IServiceManager
     {
         private readonly Lazy<IAuthenticationService> _authenticationService = new Lazy<IAuthenticationService>(
-               () => new AuthenticationService(logger, mapper, userManager, signInManager, configuration));
+               () => new AuthenticationService(logger, mapper, userManager,options, configuration,signInManager));
 
         public IAuthenticationService AuthenticationService => _authenticationService.Value;
     }
