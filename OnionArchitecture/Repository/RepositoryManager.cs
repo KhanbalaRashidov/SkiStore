@@ -13,6 +13,8 @@ namespace Repository
             _repositoryContext = repositoryContext;
         }
 
+        public IProductRepository ProductRepository => throw new NotImplementedException();
+
         public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
 
     }
