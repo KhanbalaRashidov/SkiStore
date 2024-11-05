@@ -10,5 +10,9 @@ namespace Repository
 {
     public class ProductRepository(RepositoryContext repositoryContext) : RepositoryBase<Product>(repositoryContext), IProductRepository
     {
+        public Task<IEnumerable<Product>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
