@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Contracts
+namespace Service
 {
-    public interface IProductService
+    internal class ProductService
     {
-        Task GetAll();
     }
 }
