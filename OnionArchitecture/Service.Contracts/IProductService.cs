@@ -9,5 +9,6 @@ namespace Service.Contracts
     public interface IProductService
     {
         Task GetAll();
+        Task GetById(Guid id);
     }
 }

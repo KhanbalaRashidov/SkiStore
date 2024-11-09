@@ -13,5 +13,10 @@ namespace Service
         {
             throw new NotImplementedException();
         }
+
+        public Task GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
