@@ -9,6 +9,11 @@ namespace Service
 {
     internal class ProductService : IProductService
     {
+        public Task Create()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task GetAll()
         {
             throw new NotImplementedException();

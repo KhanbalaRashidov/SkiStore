@@ -10,5 +10,6 @@ namespace Service.Contracts
     {
         Task GetAll();
         Task GetById(Guid id);
+        Task Create();
     }
 }
