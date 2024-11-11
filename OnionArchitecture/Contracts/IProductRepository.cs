@@ -10,5 +10,6 @@ namespace Contracts
     public interface IProductRepository:IRepositoryBase<Product>
     {
         Task<IEnumerable<Product>> GetAll();
+        Task Create();
     }
 }
